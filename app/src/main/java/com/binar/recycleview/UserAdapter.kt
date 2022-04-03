@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.recycleview.data.User
 
@@ -20,9 +21,16 @@ class UserAdapter(private val user: List<User>): RecyclerView.Adapter<UserAdapte
         return UserViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.usernameTextView.text = user[position].username
         holder.phoneNumberTextView.text = user[position].phoneNumber.toString()
+        holder.itemView.setOnClickListener{
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(user[position])
+            it.findNavController().navigate(action)
+        }
+
+
     }
 
     override fun getItemCount(): Int {

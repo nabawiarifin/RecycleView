@@ -2,4 +2,6 @@
     <string name="app_name">RecycleView</string>
     <string name="nabawi_arifin">Nabawi Arifin</string>
     <string name="_08126447959">08126447959</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
