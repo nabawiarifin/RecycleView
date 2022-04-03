@@ -23,7 +23,7 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        //Casting Recycler view from first fragment
         userRecyclerView = view.findViewById(R.id.user_recycler_view_fragment)
         val userList = listOf(
             User(
@@ -47,9 +47,13 @@ class FirstFragment : Fragment() {
         //Adapter to process Data
         val userAdapter = UserAdapter(userList)
 
-        //Displays layout in a vertical sense
+        //Creates layout manager
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+
+        //Sets layoutManager on RecyclerView
         userRecyclerView.layoutManager = layoutManager
+
+        //Sets adapter for recyclerView
         userRecyclerView.adapter = userAdapter
     }
 
