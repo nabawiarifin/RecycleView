@@ -8,11 +8,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.recycleview.data.User
+import com.binar.recycleview.databinding.ActivityMainBinding
+import com.binar.recycleview.databinding.FragmentFirstBinding
 
 
 class FirstFragment : Fragment() {
 
     private lateinit var userRecyclerView: RecyclerView
+    private lateinit var binding: FragmentFirstBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,8 +27,11 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Casting Recycler view from first fragment
-        userRecyclerView = view.findViewById(R.id.user_recycler_view_fragment)
+        binding = FragmentFirstBinding.bind(view)
+
+//        //Casting Recycler view from first fragment
+//        userRecyclerView = view.findViewById(R.id.user_recycler_view_fragment)
+
         val userList = listOf(
             User(
                 "Nabawi Arifin",
@@ -51,10 +58,10 @@ class FirstFragment : Fragment() {
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
 
         //Sets layoutManager on RecyclerView
-        userRecyclerView.layoutManager = layoutManager
+        binding.userRecyclerViewFragment.layoutManager = layoutManager
 
         //Sets adapter for recyclerView
-        userRecyclerView.adapter = userAdapter
+        binding.userRecyclerViewFragment.adapter = userAdapter
     }
 
 
